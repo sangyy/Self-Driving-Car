@@ -2,11 +2,11 @@ print('Setting Up')
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-from utils import *
+from Utils import *
 from sklearn.model_selection import train_test_split
 
 
-path = 'myData'
+path = '/Users/sangyy/Documents/beta_simulator_mac/dataset'
 data = importData(path)
 
 data = balancedData(data, display=False)
