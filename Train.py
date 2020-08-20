@@ -20,11 +20,13 @@ print('Total Validation Images: ', len(xVal))
 model = createModel()
 model.summary()
 
-history = model.fit(batchGen(xTrain,yTrain,100,1),steps_per_epoch=300,epochs=10,
+filepath = 'model-ep{epoch:03d}-loss{loss:.3f}-val_loss{val_loss:.3f}.h5'
+checkpoint = ModelCheckpoint(filepath, monitor='val_loss', verbose=1, save_best_only=True, mode='min')
+history = model.fit(batchGen(xTrain,yTrain,100,1),steps_per_epoch=300,epochs=10,callbacks=[checkpoint],
            validation_data=batchGen(xVal, yVal,100,0), validation_steps=200)
 
-model.save('model.h5')
-print('Model Saved')
+# model.save('model.h5')
+# print('Model Saved')
 
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
