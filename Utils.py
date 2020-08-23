@@ -15,7 +15,7 @@ from tensorflow.keras.callbacks import ModelCheckpoint
 
 ##### Name #####
 def getName(filepath):
-    return filepath.split('\\')[-1]
+    return filepath.split('/')[-1]
 
 
 ##### Data Importation #####

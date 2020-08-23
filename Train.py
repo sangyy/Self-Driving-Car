@@ -5,7 +5,8 @@ print('Setting Up')
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 
-path = '/Users/sangyy/Documents/beta_simulator_mac/dataset'
+# path = '/Users/sangyy/Documents/beta_simulator_mac/dataset'
+path = 'C:/Users/bj109/Documents/dataset'
 data = importData(path)
 
 data = balancedData(data, display=True)
