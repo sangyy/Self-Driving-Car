@@ -30,15 +30,19 @@ def preProcess(img):
 
 @sio.on('telemetry')
 def telemetry(sid, data):
-    speed = float(data['speed'])
-    image = Image.open(BytesIO(base64.b64decode(data['image'])))
-    image = np.asarray(image)
-    image = preProcess(image)
-    image = np.array([image])
-    steering = float(model.predict(image))
-    throttle = 1.0 - speed / maxSpeed
-    print(f'{steering}, {throttle}, {speed}')
-    sendControl(steering, throttle)
+    if data:
+        speed = float(data['speed'])
+        image = Image.open(BytesIO(base64.b64decode(data['image'])))
+        image = np.asarray(image)
+        image = preProcess(image)
+        image = np.array([image])
+        steering = float(model.predict(image))
+        throttle = 1.0 - speed / maxSpeed
+        print(f'{steering}, {throttle}, {speed}')
+        sendControl(steering, throttle)
+    else:
+        # NOTE: DON'T EDIT THIS.
+        sio.emit('manual', data={}, skip_sid=True)
 
 
 @sio.on('connect')
