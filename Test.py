@@ -9,7 +9,7 @@ import eventlet
 import socketio
 import os
 print('Setting UP')
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 # FOR REAL TIME COMMUNICATION BETWEEN CLIENT AND SERVER
 sio = socketio.Server()

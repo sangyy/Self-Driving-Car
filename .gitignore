@@ -2,3 +2,5 @@ model-ep001-loss0.046-val_loss0.038.h5
 model-ep002-loss0.042-val_loss0.036.h5
 model-ep003-loss0.040-val_loss0.034.h5
 model-ep005-loss0.037-val_loss0.032.h5
+model.h5
+model.h5
